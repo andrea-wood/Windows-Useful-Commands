@@ -1,0 +1,7 @@
+# 							
+#	Linux-Useful-Commands	
+#
+
+# list all directories > 1GB in the partition
+
+	du -h <dir> | grep '^\s*[0-9\.]\+G'
