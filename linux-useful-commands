@@ -5,6 +5,12 @@
 # list all directories > 1GB in the partition
 du -h <dir> | grep '^\s*[0-9\.]\+G'
 
+# total size of the current directory including all the subdirectories
+du -ch | grep total
+
+# This displays a summary of the directory size. It is the simplest way to know the total size of the current directory
+du -s
+
 # Export All Databases Mysql
 mysqldump -u root -p --all-databases | gzip > {database}.sql.gz
 mysqldump -u root -p --opt --all-databases > alldb.sql
