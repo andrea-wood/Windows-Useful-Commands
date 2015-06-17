@@ -4,3 +4,8 @@
 
 # list all directories > 1GB in the partition
 du -h <dir> | grep '^\s*[0-9\.]\+G'
+
+# Export All Databases Mysql
+mysqldump -u root -p --all-databases | gzip > {database}.sql.gz
+mysqldump -u root -p --opt --all-databases > alldb.sql
+mysqldump -u root -p --all-databases --skip-lock-tables > alldb.sql
