@@ -13,8 +13,28 @@ du -s
 
 # Export All Databases Mysql
 mysqldump -u root -p --all-databases | gzip > {database}.sql.gz
-mysqldump -u root -p --opt --all-databases > alldb.sql
+mysqldump -u root -p --opt --nanoall-databases > alldb.sql
 mysqldump -u root -p --all-databases --skip-lock-tables > alldb.sql
 
 # Using tar and ssh to efficiently copy files preserving permissions
 tar zcvf - /dir/ | ssh -p port_number user@host "tar zxv -C /dir/"
+
+#
+# SCREEN 
+#
+
+# Starting Linux Screen
+screen
+# Detaching From Screen
+Ctrl-a + d
+# Attach to a session which is already attached elsewhere
+screen -x
+
+# To append the string to file 
+echo "hello" >> greetings.txt
+# To append the contents of the file temp.txt to file data.txt
+cat temp.txt >> data.txt
+# To append the current date/time timestamp to the file dates.txt
+date >> dates.txt
+
+
