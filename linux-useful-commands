@@ -27,8 +27,23 @@ tar zcvf - /dir/ | ssh -p port_number user@host "tar zxv -C /dir/"
 screen
 # Detaching From Screen
 Ctrl-a + d
+# Creating Windows
+Ctrl-a + c
+# Switching Between Windows
+Ctrl-a + n
 # Attach to a session which is already attached elsewhere
-screen -x
+screen -x (if you have multiple screens: screen -r  31844.pts-0.office)
+# Create a running log of the session
+Ctrl-a + H
+# Getting Alerts
+Ctrl-a + M 
+# To monitor for silence or no output 
+Ctrl-a + _
+# Locking Your Screen Session
+Ctrl-a + x
+# Stopping Screen
+Ctrl-a + k or exit
+
 
 # To append the string to file 
 echo "hello" >> greetings.txt
