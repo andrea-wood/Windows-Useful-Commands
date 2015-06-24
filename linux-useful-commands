@@ -52,4 +52,13 @@ cat temp.txt >> data.txt
 # To append the current date/time timestamp to the file dates.txt
 date >> dates.txt
 
+#
+# SSH
+#
 
+# check if ssh is running
+ps aux | grep sshd
+# check if the process sshd is listening on port 22
+netstat -plant | grep :22
+# check if the port 22 TCP file is open
+lsof -i | grep sshd
