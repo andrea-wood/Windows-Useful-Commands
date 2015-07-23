@@ -73,3 +73,32 @@ lsof -i | grep sshd
 6. Create if not exist file authorized_keys and copy the public key: cat /etc/dropbear/private_key_dropbear >> /etc/dropbear/authorized_keys && chmod 0600 /etc/dropbear/authorized_keys
 7. Add passphrase on PuttyGen and save the private key
 8. Run Pageant and add the new key
+
+
+## FIX FULL QMAIL QUEUE ##
+# See messages in queue
+tail -f /var/log/qmail/current
+df
+# Stop qmail
+/etc/rc.d/init.d/qmail stop
+cd /var/qmail/
+ls -l
+# remove queue directory
+rm -rf queue
+# check space
+df
+# to queue again use qmail repair at http://pyropus.ca/software/queue-repair/queue-repair-0.9.0.tar.gz
+mkdir /temp
+cd /temp
+wget http://pyropus.ca/software/queue-repair/queue-repair-0.9.0.tar.gz
+tar xfz queue-repair-0.9.0.tar.gz
+cd queue-repair-0.9.0
+./queue_repair.py -c -s 23 --no-bigtodo .
+# check if queue dir is created in the temp dir
+ls -l queue
+# repair qmail for real
+./queue_repair.py -c -s 23 --no-bigtodo /var/qmail
+ ls -l /var/qmail/
+# restart qmail
+/etc/rc.d/init.d/qmail start
+# test qmail
