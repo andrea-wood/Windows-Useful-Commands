@@ -102,3 +102,8 @@ ls -l queue
 # restart qmail
 /etc/rc.d/init.d/qmail start
 # test qmail
+echo test | mail test@domain.com
+tail -f /var/log/qmail/current
+...
+@400000003f88426f097eb3c4 starting delivery 1: msg 100179 to remote test@domain.com
+...
