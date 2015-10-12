@@ -1,0 +1,10 @@
+## Force Windows to get a fresh ip to the dhcp server
+ipconfig /release
+net stop dhcp
+net start dhcp
+ipconfig /renew
+# to indicate only a connection matching Local* (for example, Local Area Connection)
+ipconfig /release Local*
+net stop dhcp
+net start dhcp
+ipconfig /renew Local*
