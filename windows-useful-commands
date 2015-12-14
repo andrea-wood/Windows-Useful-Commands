@@ -8,3 +8,11 @@ ipconfig /release Local*
 net stop dhcp
 net start dhcp
 ipconfig /renew Local*
+
+# VIRTUAL BOX COMMAND LINE#
+# List all vms
+VBoxManage list vms
+# Launc a vm in background
+VBoxHeadless -s <Guest-OS-Name>
+# or
+VBoxHeadless -s <UUID>
